@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!-- ====================================================================== 
+     2013/11/28
+     project    
+     description                   
+     james                                                                
+     ====================================================================== -->
+<project name="Chemistry" default="CopyToGit">
+    <description>
+            description
+    </description>
+
+        <property name="compile.encoding" value="UTF-8"/>
+	<property name="remote.root" value="/home/james"/>
+    	<property name="local.root" value="."/>
+
+	<property name="git.home" value="${remote.root}/gitPrj/Chemistry"/>
+	<property name="git.src.home" value="${git.home}/src"/>
+
+<!-- *********************  Begin for SVN   ********************************* -->
+
+    <!-- ================================= 
+          target: CopyToGit
+         ================================= -->
+    <target name="CopyToGit"  description="copy java source To gitPrj">
+        <copy preservelastmodified="true" todir="${git.home}" verbose="true">
+					<fileset dir="." id="GitJavaTo">
+						<exclude name="**/*.swp"/>
+						<exclude name="out/**"/>
+						<exclude name="build/**"/>
+        	</fileset>
+				</copy>
+</target>
+
+	<!-- *********************  End for deploy customer   ********************************* -->
+
+
+<!-- *********************  End SVN ********************************* -->
+</project>
+
